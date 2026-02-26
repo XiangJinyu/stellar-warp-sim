@@ -31,6 +31,8 @@ Integration: 4th-order Runge-Kutta, dt = 1 Myr, T_total = 3000 Myr, seed = 42.
 
 ### 1. Warp Formation Mechanism (Fig. 1)
 
+![Fig. 1: Warp evolution -- (a) tilt profile, (b) line of nodes, (c) amplitude time series](figures/fig1_warp_evolution.png)
+
 The simulation reveals a clear **impulsive tidal excitation** mechanism:
 
 - **Panel (a)**: The warp tilt profile grows monotonically with radius at all times, 
@@ -53,6 +55,8 @@ The simulation reveals a clear **impulsive tidal excitation** mechanism:
 
 ### 2. Torque Decomposition (Fig. 7)
 
+![Fig. 7: Torque decomposition -- (a) magnitude vs R, (b) z-component vs R](figures/fig7_torque_decomposition.png)
+
 The torque analysis at t = 3000 Myr reveals a clear hierarchy:
 
 - **Tidal torque** dominates at all radii R > 2 kpc (by 1--3 orders of magnitude over 
@@ -68,10 +72,14 @@ The torque analysis at t = 3000 Myr reveals a clear hierarchy:
 
 ### 3. Parameter Dependencies
 
+![Fig. 4: Parameter study -- satellite mass](figures/fig4_param_Msat.png)
+
 **Satellite mass (Fig. 4)**: Warp amplitude scales nearly linearly with M_sat over the 
 range 1--50 x 10^10 Msun (0.17 deg to 8.55 deg peak tilt). This is expected from the 
 tidal torque formula T ~ G * M_sat * M_ring * R^2 / d^3. The time evolution panel shows 
 that more massive perturbers produce faster warp growth with the same staircase pattern.
+
+![Fig. 5: Parameter study -- orbital inclination](figures/fig5_param_inclination.png)
 
 **Orbital inclination (Fig. 5)**: Peak warp tilt peaks sharply at i ~ 45 deg (1.70 deg) 
 and drops to near zero at i = 90 deg (0.18 deg). This is the theoretically predicted 
@@ -83,6 +91,8 @@ optimal angle is sin(2i) maximized at i = 45 deg. The time evolution panel also 
 interesting behavior: i = 90 deg shows oscillatory warp (the torque reverses sign each 
 half-orbit), while intermediate inclinations produce steady monotonic growth.
 
+![Fig. 6: Parameter study -- halo flattening](figures/fig6_param_qhalo.png)
+
 **Halo flattening**: No significant sensitivity was found for q = 0.8--1.0 in our 
 parameter regime. This is because the halo torque is 3 orders of magnitude weaker than 
 the tidal torque (see Section 2). Halo flattening would become relevant only for much 
@@ -90,6 +100,10 @@ weaker perturbers, or after the satellite is removed -- the halo torque would th
 control the long-term warp precession and winding timescale.
 
 ## Physical Interpretation
+
+![Fig. 2: 3D visualization of the warped disk at four epochs](figures/fig2_3d_warp.png)
+
+![Fig. 3: Face-on (top) and edge-on (bottom) density maps](figures/fig3_disk_views.png)
 
 The warp formation in our simulation follows a three-stage process:
 
