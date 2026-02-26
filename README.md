@@ -42,6 +42,7 @@ stellar_warp_sim/
 │   ├── param_incl_*/          # Orbital inclination study (7 values)
 │   └── param_qhalo_*/         # Halo flattening study (5 values)
 ├── figures/                   # 7 publication-quality figures
+├── paper/                     # Full MNRAS-format LaTeX manuscript + compiled PDF
 ├── REPORT.md                  # Full English report with embedded figures
 ├── REPORT_CN.md               # Full Chinese report (中文报告)
 ├── RESULTS.json               # Quantitative results for all runs
@@ -112,6 +113,25 @@ No GPU or special hardware required. The full study (20 simulations × 3 Gyr) co
 - Vasiliev, E. 2023, Galaxies, 11, 59
 
 See [REPORT.md](REPORT.md) for the complete reference list and detailed analysis.
+
+## Paper
+
+A full manuscript in MNRAS format is included in the `paper/` directory:
+
+- **[Compiled PDF](paper/tidal_stellar_warp_paper.pdf)** -- ready-to-read version
+- `paper/main.tex` -- main LaTeX source (uses `\input` for each section)
+- `paper/sec_introduction.tex` -- Introduction: observational context, 4 warp mechanisms, scope
+- `paper/sec_method.tex` -- Method: tilted-ring formalism, NFW halo, 3 torque derivations
+- `paper/sec_results.tex` -- Results: fiducial model, torque decomposition, 3 parameter studies
+- `paper/sec_discussion.tex` -- Discussion: MW comparison, precession, caveats
+- `paper/sec_conclusions.tex` -- Conclusions: 7 key findings
+- `paper/references.bib` -- 25 bibliography entries
+
+To compile locally:
+```bash
+cd paper
+pdflatex main && bibtex main && pdflatex main && pdflatex main
+```
 
 ## License
 
