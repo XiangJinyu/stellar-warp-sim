@@ -1,0 +1,68 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Comparison with the Milky Way warp}
+\label{sec:comparison_mw}
+
+Our fiducial model produces a maximum tilt of $1.70^\circ$ and an outer-disk mean tilt of $1.34^\circ$. How does this compare with observations of the Milky Way?
+
+\citet{chen2019} and \citet{skowron2019} used classical Cepheids to map the MW stellar warp in three dimensions, finding vertical displacements of ${\sim}0.5$--$1.0$\,kpc at $R\sim14$\,kpc, corresponding to tilt angles of ${\sim}2^\circ$--$5^\circ$ depending on the tracer population and radial range. The \ion{H}{i} gas warp extends much further, reaching displacements of ${\sim}3$--$4$\,kpc at $R\sim25$\,kpc \citep[${\sim}10^\circ$;][]{bland2016}. Our model's prediction thus lies at the \emph{lower end} of the observed stellar warp range.
+
+Several factors may account for this discrepancy:
+
+\begin{enumerate}
+    \item \textbf{Dynamical halo response.} Our model treats the dark matter halo as a rigid potential. In reality, a satellite as massive as the LMC ($M\sim1$--$2\times10^{11}\,\mathrm{M}_\odot$; \citealt{erkal2019}) induces a substantial dynamical friction wake in the host halo \citep{garavitocamargo2019} and triggers a reflex motion of the inner galaxy \citep{vasiliev2023}. Both effects amplify the effective tidal torque experienced by the disk. \citet{laporte2018} showed that including a live halo can increase the warp amplitude by factors of 2--3.
+    
+    \item \textbf{Disk truncation.} Our model extends only to $R_\mathrm{max}=18$\,kpc. The observed MW warp continues growing beyond this radius, and the largest observed displacements occur at $R\sim20$--$25$\,kpc. Extending the ring model to larger radii would yield larger maximum tilts.
+    
+    \item \textbf{Multiple perturbers.} Both the LMC and the Sagittarius dwarf galaxy contribute to the MW warp \citep{laporte2018, bennett2022}. Their combined effect may exceed that of a single satellite.
+\end{enumerate}
+
+\subsection{Warp precession}
+\label{sec:precession}
+
+The line of nodes in our fiducial model precesses at ${\sim}7\,\mathrm{deg\,Gyr^{-1}}$. Recent kinematic measurements using \textit{Gaia} data report precession velocities of ${\sim}10$--$13\,\mathrm{km\,s^{-1}\,kpc^{-1}}$ \citep{poggio2020, cheng2020}, equivalent to ${\sim}5$--$10\,\mathrm{deg\,Gyr^{-1}}$ depending on the assumed pattern and radius. Our prediction is broadly consistent with these measurements.
+
+The direction of precession (prograde vs.\ retrograde) remains debated. \citet{poggio2020} reported prograde precession, while \citet{huang2024} measured retrograde precession using a ``motion-picture'' method. Our model produces prograde precession driven by the combination of satellite orbital motion and halo torque. A live halo response could modify this prediction.
+
+An important observational diagnostic is the radial dependence of the line of nodes: a ``wound-up'' warp would show strong radial variation in $\phi(R)$, while a coherent warp has nearly constant $\phi(R)$. Our model produces a coherent warp [Fig.~\ref{fig:warp_evolution}(b)], consistent with observations suggesting that the MW warp does not show significant winding \citep{briggs1990}.
+
+\subsection{The role of self-gravity}
+\label{sec:selfgravity}
+
+Although the tidal torque dominates the torque budget (Fig.~\ref{fig:torque}), the disk self-gravity coupling plays an essential structural role. It provides the bending stiffness that:
+\begin{enumerate}
+    \item stabilizes the inner disk against tidal tilting,
+    \item enables bending wave propagation that communicates the outer-disk perturbation inward, and
+    \item maintains the coherence of the warp (constant line of nodes with radius) by resisting the differential precession that would otherwise wind up the warp.
+\end{enumerate}
+
+Without self-gravity, each ring would precess independently under the combined halo and tidal torques, leading to a rapidly wound-up and incoherent warp pattern -- inconsistent with observations \citep{briggs1990}.
+
+\subsection{Alternative warp mechanisms}
+\label{sec:alternatives}
+
+Our study addresses the tidal mechanism in isolation. We briefly discuss how other proposed mechanisms relate to our results.
+
+\textbf{Internally driven warps.} \citet{sellwood2022} showed that any perturbation creating a misalignment between the inner and outer disk excites a retrograde, outward-propagating bending wave that grows in amplitude. This mechanism is complementary to tidal forcing: the tidal torque could provide the initial misalignment that triggers the internal bending wave. Our tilted-ring framework does not capture this effect, as it requires a treatment of the disk's continuous bending wave spectrum.
+
+\textbf{Cosmic gas accretion.} \citet{lopezcorredoira2002} proposed that misaligned intergalactic gas infall can produce warps independently of satellite interactions. This mechanism may explain warps in relatively isolated galaxies. Our model does not include gas dynamics.
+
+\textbf{Halo--disk misalignment.} If the disk angular momentum is misaligned with the halo's symmetry axis, the halo torque drives differential precession that manifests as a warp \citep{debattista1999}. Our model starts with perfect alignment (all rings in the $z$-direction, halo symmetry axis also along $z$), so this mechanism is not active. However, the halo torque (equation~\ref{eq:T_halo}) is present and would drive warp precession and eventual winding on long time-scales in the absence of ongoing tidal forcing.
+
+\subsection{Caveats}
+\label{sec:caveats}
+
+We identify several limitations of our model:
+
+\begin{enumerate}
+    \item \textbf{Rigid halo.} The most significant limitation is the neglect of the halo's dynamical response to the satellite. A live halo would develop a dynamical friction wake \citep{garavitocamargo2019} and undergo reflex motion \citep{vasiliev2023}, both of which amplify the effective tidal perturbation.
+    
+    \item \textbf{Fixed satellite orbit.} A realistic satellite loses mass through tidal stripping and its orbit decays through dynamical friction. These effects modify the tidal forcing over time.
+    
+    \item \textbf{No gas dynamics.} The gas disk responds differently to tidal torques due to pressure forces and viscous dissipation. The observed \ion{H}{i} warp is typically larger than the stellar warp, suggesting differential response.
+    
+    \item \textbf{Thin-ring approximation.} The rings are infinitesimally thin. A finite thickness would modify the self-gravity coupling, particularly for the inner rings where $h/R$ is not negligible.
+    
+    \item \textbf{Linear regime.} The tilted-ring model assumes small tilt angles. For the most extreme parameter combinations ($M_\mathrm{sat}=5\times10^{11}\,\mathrm{M}_\odot$, $\theta_\mathrm{max}\sim8.5^\circ$), non-linear effects may become important.
+\end{enumerate}

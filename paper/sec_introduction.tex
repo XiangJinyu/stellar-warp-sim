@@ -1,0 +1,31 @@
+\section{Introduction}
+\label{sec:intro}
+
+Warps -- large-scale bending of the outer disk out of the galactic midplane -- are among the most common structural features of spiral galaxies. Observations in neutral hydrogen (\ion{H}{i}) have long established that the majority of disk galaxies exhibit warped gas layers \citep{garciaruiz2002, kruit2007}, and the phenomenon extends to the stellar component as revealed by infrared photometry and, more recently, by precision astrometry from \textit{Gaia} \citep{poggio2020, chen2019, skowron2019}.
+
+The Milky Way itself hosts a prominent warp. Classical Cepheid mapping by \citet{chen2019} and \citet{skowron2019} reveals a stellar warp reaching a physical displacement of ${\sim}0.5$--$1.0$\,kpc at $R\sim14$\,kpc, corresponding to a tilt angle of ${\sim}2^\circ$--$5^\circ$ depending on the tracer population and the radial range considered. The \ion{H}{i} gas warp extends further, reaching displacements of ${\sim}3$--$4$\,kpc at $R\sim25$\,kpc \citep{bland2016}. Recent kinematic analyses using \textit{Gaia} data have additionally detected the warp's time evolution: the line of nodes precesses at a rate of ${\sim}10$--$13\,\mathrm{km\,s^{-1}\,kpc^{-1}}$ (equivalently ${\sim}5$--$10\,\mathrm{deg\,Gyr^{-1}}$), a measurement that constrains the underlying dynamics \citep{poggio2020, cheng2020}.
+
+Despite the ubiquity of galactic warps, the dominant excitation mechanism remains a matter of active debate \citep[see][for reviews]{binney1992, bland2016}. The principal hypotheses include:
+
+\begin{enumerate}
+    \item \textbf{Tidal interaction with satellite galaxies.} A companion galaxy on an inclined orbit exerts a time-varying quadrupole tidal torque that can tilt the outer disk differentially \citep{hunter1969, ostriker1989, weinberg1998, tsuchiya2002}. In the Milky Way context, both the Large Magellanic Cloud (LMC; $M\sim1$--$2\times10^{11}\,\mathrm{M}_\odot$; \citealt{erkal2019}) and the Sagittarius dwarf galaxy \citep{laporte2018, bennett2022} have been proposed as drivers.
+    
+    \item \textbf{Misaligned dark matter halo.} If the disk angular momentum is misaligned with the principal axes of an oblate or triaxial dark matter halo, the resulting torque drives differential precession of disk annuli, which can manifest as a warp \citep{debattista1999, sparke1988}.
+    
+    \item \textbf{Cosmic gas accretion.} Misaligned infall of intergalactic gas onto the outer disk can torque the disk directly \citep{lopezcorredoira2002}.
+    
+    \item \textbf{Internally driven bending waves.} Any perturbation that misaligns the inner and outer disk excites a retrograde bending wave that propagates outward and grows in amplitude \citep{sellwood2022}.
+\end{enumerate}
+
+These mechanisms are not mutually exclusive, and the observed warp in any given galaxy likely reflects a combination of drivers. Nevertheless, identifying the \emph{dominant} mechanism is crucial for using warps as probes of galactic dynamics and dark matter halo properties.
+
+In this work, we focus on the tidal mechanism and investigate its consequences using a tilted-ring dynamical model. The tilted-ring approach, pioneered by \citet{sparke1988}, decomposes the disk into concentric rings whose angular momentum vectors evolve under mutual gravitational torques, halo torques, and external forcing. This semi-analytic framework captures the essential physics of warp excitation and propagation -- including self-gravity mediated bending stiffness, differential precession, and tidal driving -- while being computationally efficient enough to permit extensive parameter surveys.
+
+Our study makes three principal contributions:
+\begin{enumerate}
+    \item We demonstrate that tidal warp growth is \emph{impulsive}: the warp amplitude increases in discrete steps synchronized with the satellite's pericentric passages, rather than growing continuously (Section~\ref{sec:fiducial}).
+    \item We quantify the scaling of warp amplitude with satellite mass (${\propto}M_\mathrm{sat}$), orbital inclination (${\propto}\sin 2i$), and halo flattening, providing analytic understanding for each dependence (Section~\ref{sec:params}).
+    \item We decompose the torque budget as a function of galactocentric radius, revealing that tidal torques dominate over disk self-gravity by 1--3 orders of magnitude at $R>2$\,kpc, while the halo torque is subdominant by ${\sim}3$ orders of magnitude (Section~\ref{sec:torques}).
+\end{enumerate}
+
+The paper is organized as follows. Section~\ref{sec:method} describes the tilted-ring model, the galactic potential, the satellite orbit, and the numerical integration scheme. Section~\ref{sec:results} presents the results of the fiducial simulation and the parameter study. Section~\ref{sec:discussion} compares with observations and discusses caveats. Section~\ref{sec:conclusions} summarizes our conclusions.

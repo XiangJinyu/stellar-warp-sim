@@ -1,0 +1,148 @@
+\section{Method}
+\label{sec:method}
+
+\subsection{Tilted-ring model}
+\label{sec:ring_model}
+
+We model the stellar disk as a collection of $N=60$ concentric, infinitesimally thin rings spanning radii $R_\mathrm{min}=0.5$\,kpc to $R_\mathrm{max}=18$\,kpc with uniform spacing $\Delta R = (R_\mathrm{max}-R_\mathrm{min})/N \approx 0.29$\,kpc. Each ring $i$ is characterized by its radius $R_i$, mass $M_i$, and angular momentum unit vector $\hat{\boldsymbol{L}}_i(t)$. The direction of $\hat{\boldsymbol{L}}_i$ encodes the instantaneous tilt of ring $i$ relative to the reference plane ($z$-axis).
+
+The ring masses are assigned assuming an exponential surface density profile:
+\begin{equation}
+    \Sigma(R) = \frac{M_\mathrm{disk}}{2\pi R_d^2} \exp\!\left(-\frac{R}{R_d}\right),
+\end{equation}
+where $M_\mathrm{disk}=5\times10^{10}\,\mathrm{M}_\odot$ is the total disk mass and $R_d=3.5$\,kpc is the exponential scale length. The mass of ring $i$ is then $M_i = 2\pi R_i \,\Sigma(R_i)\,\Delta R$.
+
+Each ring's circular velocity is computed from the enclosed mass of the combined NFW halo and exponential disk:
+\begin{equation}
+    v_\mathrm{circ}(R) = \sqrt{\frac{G\left[M_\mathrm{enc}^\mathrm{halo}(R) + M_\mathrm{enc}^\mathrm{disk}(R)\right]}{R}},
+\end{equation}
+where $M_\mathrm{enc}^\mathrm{disk}(R) = M_\mathrm{disk}\left[1-(1+R/R_d)\exp(-R/R_d)\right]$ and the NFW enclosed mass is given in Section~\ref{sec:halo}. The angular velocity is $\Omega_i = v_\mathrm{circ}(R_i)/R_i$ and the specific angular momentum is $\ell_i = v_\mathrm{circ}(R_i)\,R_i$.
+
+\subsection{Dark matter halo}
+\label{sec:halo}
+
+The host galaxy's dark matter halo is modeled as a Navarro--Frenk--White \citep[NFW;][]{navarro1996} profile with virial mass $M_\mathrm{vir}=10^{12}\,\mathrm{M}_\odot$, concentration $c=12$, and virial radius $R_\mathrm{vir}=200$\,kpc. The enclosed mass is
+\begin{equation}
+    M_\mathrm{enc}^\mathrm{halo}(r) = \frac{M_\mathrm{vir}}{\ln(1+c) - c/(1+c)} \left[\ln(1+x) - \frac{x}{1+x}\right],
+\end{equation}
+where $x = r/R_s$ and $R_s = R_\mathrm{vir}/c$ is the scale radius.
+
+To model the effect of a slightly oblate halo, we introduce the axis ratio $q \leq 1$, parameterizing the halo flattening. The oblateness produces a torque on tilted rings that causes differential precession. The precession frequency is
+\begin{equation}
+    \nu_p^2(R) = (1-q^2)\,\frac{G\,M_\mathrm{enc}^\mathrm{halo}(R)}{R^3}.
+    \label{eq:nu_p}
+\end{equation}
+Our fiducial model adopts $q=0.95$, corresponding to a mildly oblate halo.
+
+\subsection{Torques}
+\label{sec:torques_method}
+
+The evolution of each ring's angular momentum direction is governed by
+\begin{equation}
+    \frac{\mathrm{d}\hat{\boldsymbol{L}}_i}{\mathrm{d}t} = \frac{\boldsymbol{T}_i^\mathrm{self} + \boldsymbol{T}_i^\mathrm{halo} + \boldsymbol{T}_i^\mathrm{tidal}}{M_i\,\ell_i},
+    \label{eq:dLdt}
+\end{equation}
+where $M_i\,\ell_i = |\boldsymbol{L}_i|$ is the angular momentum magnitude, and the three torque terms are described below.
+
+\subsubsection{Self-gravity coupling}
+
+When neighboring rings are mutually tilted, they exert gravitational torques on each other that resist differential bending. Following \citet{sparke1988}, the coupling torque on ring $i$ from ring $j$ is
+\begin{equation}
+    \boldsymbol{T}_{ij}^\mathrm{self} = C_{ij}\,\hat{\boldsymbol{L}}_i \times \left(\hat{\boldsymbol{L}}_j \times \hat{\boldsymbol{L}}_i\right),
+\end{equation}
+where the coupling coefficient is
+\begin{equation}
+    C_{ij} = \frac{G\,M_i\,M_j\,\min(R_i,R_j)}{r_\mathrm{eff}^2\,\max(R_i,R_j)},
+\end{equation}
+and $r_\mathrm{eff} = \sqrt{|R_i-R_j|^2 + h^2}$ is the effective separation softened by the disk scale height $h=z_\mathrm{disk}=0.3$\,kpc. The total self-gravity torque on ring $i$ is $\boldsymbol{T}_i^\mathrm{self}=\sum_{j\neq i} \boldsymbol{T}_{ij}^\mathrm{self}$, summed over the nearest 8 neighbors in each direction.
+
+This coupling provides the disk's \emph{bending stiffness}: it resists differential tilting and enables the propagation of bending waves through the disk.
+
+\subsubsection{Halo torque}
+
+The oblate halo exerts a torque that drives precession of tilted rings around the halo symmetry axis ($\hat{\boldsymbol{z}}$):
+\begin{equation}
+    \boldsymbol{T}_i^\mathrm{halo} = \nu_p^2(R_i)\,M_i\,\ell_i\,\left(\hat{\boldsymbol{z}} \times \hat{\boldsymbol{L}}_i\right),
+    \label{eq:T_halo}
+\end{equation}
+where $\nu_p^2$ is given by equation~(\ref{eq:nu_p}). This torque is perpendicular to both $\hat{\boldsymbol{z}}$ and $\hat{\boldsymbol{L}}_i$, causing pure precession without changing the tilt angle.
+
+\subsubsection{Tidal torque}
+\label{sec:tidal_torque}
+
+The satellite galaxy, treated as a point mass $M_\mathrm{sat}$ at position $\boldsymbol{r}_\mathrm{sat}(t)$, exerts a quadrupole tidal torque on each ring:
+\begin{equation}
+    \boldsymbol{T}_i^\mathrm{tidal} = \frac{3}{2}\,\frac{G\,M_\mathrm{sat}\,M_i\,R_i^2}{d^3}\,\left(\hat{\boldsymbol{d}} \times \hat{\boldsymbol{L}}_i\right)\left(\hat{\boldsymbol{d}} \cdot \hat{\boldsymbol{L}}_i\right),
+    \label{eq:T_tidal}
+\end{equation}
+where $d = |\boldsymbol{r}_\mathrm{sat}|$ is the distance from the galactic centre to the satellite (softened by $\epsilon_\mathrm{sat}$) and $\hat{\boldsymbol{d}} = \boldsymbol{r}_\mathrm{sat}/d$. The key features of this torque are:
+\begin{itemize}
+    \item It scales as $R_i^2/d^3$, making the outer disk far more susceptible than the inner disk.
+    \item The factor $(\hat{\boldsymbol{d}}\cdot\hat{\boldsymbol{L}}_i)(\hat{\boldsymbol{d}}\times\hat{\boldsymbol{L}}_i)$ vanishes when the satellite is in the disk plane ($\hat{\boldsymbol{d}}\perp\hat{\boldsymbol{L}}_i$) or along the disk normal ($\hat{\boldsymbol{d}}\parallel\hat{\boldsymbol{L}}_i$), and is maximized at an angle of $45^\circ$ between the two vectors.
+\end{itemize}
+
+\subsection{Satellite orbit}
+\label{sec:orbit}
+
+The satellite follows a fixed Keplerian orbit with semi-major axis $a$, eccentricity $e$, and inclination $i$ relative to the disk plane. The orbital position is obtained by solving Kepler's equation iteratively at each time-step. The pericentric distance is $d_\mathrm{peri} = a(1-e)$ and the orbital period is $P$.
+
+Table~\ref{tab:params} summarizes the fiducial model parameters.
+
+\begin{table}
+    \centering
+    \caption{Fiducial model parameters.}
+    \label{tab:params}
+    \begin{tabular}{lcc}
+        \toprule
+        Parameter & Symbol & Value \\
+        \midrule
+        \multicolumn{3}{l}{\textit{Stellar disk}} \\
+        Total mass & $M_\mathrm{disk}$ & $5\times10^{10}\,\mathrm{M}_\odot$ \\
+        Scale length & $R_d$ & 3.5\,kpc \\
+        Scale height & $h$ & 0.3\,kpc \\
+        Number of rings & $N$ & 60 \\
+        Radial range & $R$ & 0.5--18\,kpc \\
+        \midrule
+        \multicolumn{3}{l}{\textit{NFW dark matter halo}} \\
+        Virial mass & $M_\mathrm{vir}$ & $10^{12}\,\mathrm{M}_\odot$ \\
+        Concentration & $c$ & 12 \\
+        Virial radius & $R_\mathrm{vir}$ & 200\,kpc \\
+        Axis ratio & $q$ & 0.95 \\
+        \midrule
+        \multicolumn{3}{l}{\textit{Satellite galaxy}} \\
+        Mass & $M_\mathrm{sat}$ & $10^{11}\,\mathrm{M}_\odot$ \\
+        Semi-major axis & $a$ & 25\,kpc \\
+        Eccentricity & $e$ & 0.3 \\
+        Orbital inclination & $i$ & $45^\circ$ \\
+        Orbital period & $P$ & 800\,Myr \\
+        Softening length & $\epsilon_\mathrm{sat}$ & 2\,kpc \\
+        \midrule
+        \multicolumn{3}{l}{\textit{Numerical}} \\
+        Time-step & $\Delta t$ & 1\,Myr \\
+        Total time & $T$ & 3000\,Myr \\
+        Snapshot interval & & 25\,Myr \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Numerical integration}
+\label{sec:integration}
+
+The system of ordinary differential equations~(\ref{eq:dLdt}) is integrated using a fourth-order Runge--Kutta (RK4) scheme with a fixed time-step $\Delta t = 1$\,Myr. After each full RK4 step, the unit vectors $\hat{\boldsymbol{L}}_i$ are renormalized to maintain $|\hat{\boldsymbol{L}}_i|=1$.
+
+We adopt a unit system in which lengths are in kpc, masses in $10^{10}\,\mathrm{M}_\odot$, and times in Myr. The gravitational constant in these units is $G = 4.498\times10^{-6}\,\mathrm{kpc}^3/(10^{10}\,\mathrm{M}_\odot\,\mathrm{Myr}^2)$.
+
+The total integration time is $T=3000$\,Myr, corresponding to approximately 3.75 orbital periods of the satellite. Snapshots of $\hat{\boldsymbol{L}}_i(t)$ are saved every 25\,Myr for post-processing.
+
+\subsection{Diagnostics}
+\label{sec:diagnostics}
+
+We characterize the warp through two primary diagnostics:
+
+\begin{enumerate}
+    \item \textbf{Tilt angle} $\theta_i(t) = \arccos(\hat{L}_{i,z})$: the angle between ring $i$'s angular momentum vector and the $z$-axis. A flat disk has $\theta_i=0$ for all $i$.
+    
+    \item \textbf{Line of nodes} $\phi_i(t) = \arctan(\hat{L}_{i,y}/\hat{L}_{i,x})$: the azimuthal direction of ring $i$'s tilt. A coherent warp has $\phi_i \approx \mathrm{const}$ across all radii; a wound-up warp shows $\phi_i$ varying strongly with $R$.
+\end{enumerate}
+
+We also report the maximum tilt angle across all rings, $\theta_\mathrm{max}(t) = \max_i \theta_i(t)$, and the mean tilt of the outer disk, $\langle\theta\rangle_\mathrm{outer}(t) = \langle\theta_i\rangle_{R_i>10\,\mathrm{kpc}}$.
