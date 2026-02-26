@@ -1,0 +1,23 @@
+{
+  "N_rings": 60,
+  "M_disk": 5.0,
+  "R_disk": 3.5,
+  "z_disk": 0.3,
+  "R_min": 0.5,
+  "R_max": 18.0,
+  "M_halo_vir": 100.0,
+  "c_halo": 12.0,
+  "R_vir": 200.0,
+  "q_halo": 0.95,
+  "M_sat": 20.0,
+  "R_sat_orbit": 25.0,
+  "sat_eccentricity": 0.3,
+  "incl_sat": 45.0,
+  "Omega_sat_period": 800.0,
+  "sat_softening": 2.0,
+  "dt": 1.0,
+  "T_total": 3000.0,
+  "snap_interval": 25.0,
+  "seed": 42,
+  "output_dir": "/Users/cosmo/stellar_warp_sim/src/../output"
+}
